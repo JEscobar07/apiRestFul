@@ -13,11 +13,12 @@ namespace apirestful.Models
         [Column("id")]
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int id {get; set;}
+        public int Id {get; set;}
 
         [Column("name")]
-        [MaxLength(100)]
         [Required]
+        [MaxLength(100)]
+
         public string Name {get; set;}
 
         [Column("description")]
