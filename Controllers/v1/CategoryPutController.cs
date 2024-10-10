@@ -9,13 +9,10 @@ namespace apirestful.Controllers.v1
 {
     [ApiController]
     [Route("api/v1/categories")]
-    public class CategoryController : ControllerBase
+    public class CategoryPutController : CategoryController
     {
-        protected readonly ICategoryRepository categoryRepository;
-
-        public CategoryController(ICategoryRepository categoryRepository)
+        public CategoryPutController(ICategoryRepository categoryRepository) : base(categoryRepository)
         {
-            this.categoryRepository = categoryRepository;
         }
     }
 }
