@@ -24,7 +24,7 @@ builder.Services.AddControllers();
 
 // ACA AGREGAMOS EL SERVICIO QUE NOS PERMITE TRABAJAR
 builder.Services.AddScoped<ICategoryRepository, CategoriesServices>();
-// builder.Services.AddScoped<IRoomTypesRepository, RoomTypeServices>();
+builder.Services.AddScoped<IProductRepository, ProductsServices>();
 // builder.Services.AddScoped<IGuestRepository, GuestServices>();
 // builder.Services.AddScoped<IBookingRepository, BookingServices>();
 

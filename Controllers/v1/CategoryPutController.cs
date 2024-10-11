@@ -6,6 +6,7 @@ using apirestful.DTOs;
 using apirestful.Models;
 using apirestful.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace apirestful.Controllers.v1
 {
@@ -18,6 +19,12 @@ namespace apirestful.Controllers.v1
         }
 
         [HttpPut("{id}")]
+        [SwaggerOperation(
+            Summary = "Update categories",
+            Description = "Update categories in my system by id "
+        )]
+        [SwaggerResponse(200, "Return category updated")]
+        [SwaggerResponse(404, "no categories found")]
         public async Task<IActionResult> PutCategory([FromRoute] int id, [FromBody] CategoryDTO categoryDTO)
         {
 
@@ -33,10 +40,12 @@ namespace apirestful.Controllers.v1
                     Description = categoryDTO.Description
                 };
                 Category categoryUpdate = await categoryRepository.Update(id, category);
-                if ( categoryUpdate != null)
+                if (categoryUpdate != null)
                 {
                     return Ok(categoryUpdate);
-                }else{
+                }
+                else
+                {
                     return NotFound($"The category with id {id} wasn't found");
                 }
             }

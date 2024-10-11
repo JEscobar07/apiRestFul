@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using apirestful.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace apirestful.Controllers.v1
 {
@@ -16,6 +13,12 @@ namespace apirestful.Controllers.v1
         }
 
         [HttpDelete("{id}")]
+        [SwaggerOperation(
+            Summary = "Delete categories",
+            Description = "Delete categories in my system by id "
+        )]
+        [SwaggerResponse(200, "Return messagge")]
+        [SwaggerResponse(404, "no categories found")]
         public async Task<IActionResult> DeleteCategory([FromRoute] int id)
         {
 
@@ -29,4 +32,4 @@ namespace apirestful.Controllers.v1
             }
         }
     }
-}   
+}

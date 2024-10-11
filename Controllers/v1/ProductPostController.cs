@@ -11,38 +11,40 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace apirestful.Controllers.v1
 {
     [ApiController]
-    [Route("api/v1/categories")]
-    public class CategoryPostController : CategoryController
+    [Route("api/v1/products")]
+    public class ProductPostController : ProductController
     {
-        public CategoryPostController(ICategoryRepository categoryRepository) : base(categoryRepository)
+        public ProductPostController(IProductRepository productRepository) : base(productRepository)
         {
         }
-
         [HttpPost]
         [SwaggerOperation(
-            Summary = "Create categories",
-            Description = "Create categories in my system "
-        )]
+           Summary = "Create products",
+           Description = "Create products in my system "
+       )]
         [SwaggerResponse(200, "Return messagge successfully")]
         [SwaggerResponse(400, "Return message about errors in the body of the DTO")]
-        public async Task<IActionResult> PostCategory([FromBody] CategoryDTO categoryDTO)
+        public async Task<IActionResult> PostProduct([FromBody] ProductDTO productDTO)
         {
 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var category = new Category
+            var product = new Product
             {
-                Name = categoryDTO.Name,
-                Description = categoryDTO.Description
+                Name = productDTO.Name,
+                Description = productDTO.Description,
+                Price = productDTO.Price,
+                Stock = productDTO.Stock,
+                IdCategory = productDTO.IdCategory
             };
 
-            if (category.Name != null)
+            if (product.Name != null)
             {
 
-                await categoryRepository.Add(category);
-                return Ok("Category save");
+                await productRepository.Add(product);
+                return Ok("product save");
             }
             else
             {

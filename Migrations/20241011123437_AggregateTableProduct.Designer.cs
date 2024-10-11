@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apirestful.Data;
 
@@ -10,9 +11,11 @@ using apirestful.Data;
 namespace apirestful.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241011123437_AggregateTableProduct")]
+    partial class AggregateTableProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -103,53 +106,6 @@ namespace apirestful.Migrations
                     b.HasIndex("IdCategory");
 
                     b.ToTable("products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality",
-                            IdCategory = 1,
-                            Name = "Gorgeous Rubber Shirt",
-                            Price = 941.45000000000005,
-                            Stock = 67
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
-                            IdCategory = 2,
-                            Name = "Tasty Rubber Car",
-                            Price = 828.63999999999999,
-                            Stock = 95
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
-                            IdCategory = 1,
-                            Name = "Sleek Plastic Table",
-                            Price = 175.93000000000001,
-                            Stock = 73
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-                            IdCategory = 3,
-                            Name = "Unbranded Rubber Gloves",
-                            Price = 253.38,
-                            Stock = 99
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
-                            IdCategory = 3,
-                            Name = "Sleek Frozen Sausages",
-                            Price = 377.18000000000001,
-                            Stock = 73
-                        });
                 });
 
             modelBuilder.Entity("apirestful.Models.Product", b =>
