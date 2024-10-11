@@ -60,6 +60,9 @@ namespace apirestful.Services
             {
                 productFound.Name = product.Name;
                 productFound.Description = product.Description;
+                productFound.Price = product.Price;
+                productFound.Stock = product.Stock;
+                productFound.IdCategory = product.IdCategory;
                 await context.SaveChangesAsync();
                 return productFound;
             }
