@@ -18,7 +18,6 @@ namespace apiRestFul.Models
 
         [Column("date")]
         [Required]
-        [MaxLength(100)]
 
         public DateTime Date {get; set;}
 

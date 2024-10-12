@@ -48,7 +48,7 @@ namespace apiRestFul.Controllers
 
                 var order = new Order
                 {
-                    Date = orderDTO.Date,
+                    Date = DateTime.Today,
                     IdCustomer = customer.Id
                 };
 

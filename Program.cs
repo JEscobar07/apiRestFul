@@ -1,6 +1,8 @@
 using apirestful.Data;
 using apirestful.Repositories;
 using apirestful.Services;
+using apiRestFul.Repositories;
+using apiRestFul.Services;
 using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +27,7 @@ builder.Services.AddControllers();
 // ACA AGREGAMOS EL SERVICIO QUE NOS PERMITE TRABAJAR
 builder.Services.AddScoped<ICategoryRepository, CategoriesServices>();
 builder.Services.AddScoped<IProductRepository, ProductsServices>();
+builder.Services.AddScoped<IOrderRepository, OrdersServices>();
 // builder.Services.AddScoped<IGuestRepository, GuestServices>();
 // builder.Services.AddScoped<IBookingRepository, BookingServices>();
 

@@ -9,7 +9,6 @@ namespace apiRestFul.DTOs
     public class OrderDTO
     {
         [Required]
-        [MaxLength(100)]
         public DateTime Date { get; set; }
 
         [MaxLength(100)]
