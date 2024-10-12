@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using apirestful.Models;
 using apirestful.Seeders;
+using apiRestFul.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -14,6 +15,7 @@ namespace apirestful.Data
         public DbSet<Category> Categories {get; set;}
         public DbSet<Product> Products {get; set;}
         public DbSet<Customer> Customers {get; set;}
+        public DbSet<Order> Orders {get; set;}
         
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -23,7 +25,7 @@ namespace apirestful.Data
         {
             base.OnModelCreating(modelBuilder);
             CategoriesSeeder.Seed(modelBuilder);
-            ProductsSeeder.Seed(modelBuilder,5);
+           //orderFound.Customer.Name = order.Customer.Name;
         }
     }
 }

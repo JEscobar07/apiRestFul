@@ -50,7 +50,6 @@ namespace apirestful.Controllers.v1
             {
                 return BadRequest("Error in the attributes");
             }
-
         }
     }
 }

@@ -21,7 +21,7 @@ namespace apirestful.Models
 
         [Column("address")]
         [MaxLength(255)]
-        public string? Description {get; set;}
+        public string? Address {get; set;}
 
         [Column("number_contact")]
         [MaxLength(100)]

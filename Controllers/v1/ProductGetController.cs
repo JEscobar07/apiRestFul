@@ -22,7 +22,7 @@ namespace apirestful.Controllers.v1
     )]
         [SwaggerResponse(200, "Return products")]
         [SwaggerResponse(404, "no products found")]
-        public async Task<IActionResult> GetAllproducts()
+        public async Task<IActionResult> GetAllProducts()
         {
             var list = await productRepository.GetAll();
             if (list == null || list.Count() == 0)
