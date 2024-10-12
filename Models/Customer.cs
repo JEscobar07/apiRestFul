@@ -16,9 +16,16 @@ namespace apirestful.Models
         public int Id {get; set;}
 
         [Column("name")]
-        public string name {get; set;}
+        [MaxLength(100)]
+        public string Name {get; set;}
 
-        // [Column("address")]
-        // public  
+        [Column("address")]
+        [MaxLength(255)]
+        public string? Description {get; set;}
+
+        [Column("number_contact")]
+        [MaxLength(100)]
+        public string? NumberContact {get; set;}
+
     }
 }
